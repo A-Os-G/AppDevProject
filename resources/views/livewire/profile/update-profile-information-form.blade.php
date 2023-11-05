@@ -11,10 +11,14 @@ new class extends Component
 
     public string $email = '';
 
+    public string $phone = '';
+
     public function mount(): void
     {
         $this->name = auth()->user()->name;
+        // $this->phone = auth()->user()->phone;
         $this->email = auth()->user()->email;
+
     }
 
     public function updateProfileInformation(): void
@@ -23,7 +27,9 @@ new class extends Component
 
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
+            'phone' => ['required','string','min:11', 'max:11'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
+
         ]);
 
         $user->fill($validated);
@@ -71,6 +77,12 @@ new class extends Component
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        </div>
+
+        <div>
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input wire:model="phone" id="phone" phone="phone" type="text" placeholder='phone' class="mt-1 block w-full" required autofocus autocomplete="phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
         </div>
 
         <div>
