@@ -8,6 +8,7 @@ use Illuminate\Validation\Rules;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
+
 new #[Layout('layouts.guest')] class extends Component
 {
     public string $name = '';
@@ -25,8 +26,8 @@ new #[Layout('layouts.guest')] class extends Component
     public function register(): void
     {
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required','string', 'min:11','max:11'],
+            'name' => ['required', 'string', 'max:255','unique:'.User::class],
+            'phone' => ['required','string', 'min:11','max:11','unique:'.User::class],
             'address' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
@@ -45,37 +46,37 @@ new #[Layout('layouts.guest')] class extends Component
 <div>
     <form wire:submit="register">
         <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus autocomplete="name" />
+        <div class="text-m">
+            <label for="name" :value="__('Name')" >Name</label>
+            <input wire:model="name" id="name" class="block mt-1 w-full rounded-md bg-m text-s" type="text" name="name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Phone -->
-        <div class="mt-4">
-            <x-input-label for="phone" :value="__('Phone')" />
-            <x-text-input wire:model="phone" id="phone" class="block mt-1 w-full" type="text" phone="phone" required autofocus autocomplete="phone" />
+        <div class="mt-4 text-m">
+            <label for="phone" :value="__('Phone')">Phone</label>
+            <input wire:model="phone" id="phone" class="block mt-1 w-full rounded-md bg-m text-s" type="text" phone="phone" required autofocus autocomplete="phone" />
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
         <!-- address -->
-        <div class="mt-4">
-            <x-input-label for="address" :value="__('Address')" />
-            <x-text-input wire:model="address" id="address" class="block mt-1 w-full" type="text" address="address" required autofocus autocomplete="address" />
+        <div class="mt-4 text-m">
+            <label for="address" :value="__('Address')">Address</label>
+            <input wire:model="address" id="address" class="block mt-1 w-full rounded-md bg-m text-s" type="text" address="address" required autofocus autocomplete="address" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
+        <div class="mt-4 text-m">
+            <label for="email" :value="__('Email')">Email</label>
+            <input wire:model="email" id="email" class="block mt-1 w-full rounded-md bg-m text-s" type="email" name="email" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <div class="mt-4 text-m">
+            <label for="password" :value="__('Password')">Password</label>
 
-            <x-text-input wire:model="password" id="password" class="block mt-1 w-full"
+            <input wire:model="password" id="password" class="block mt-1 w-full rounded-md bg-m text-s"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -84,24 +85,25 @@ new #[Layout('layouts.guest')] class extends Component
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        <div class="mt-4 text-m">
+            <label for="password_confirmation" :value="__('Confirm Password')">Confirm Password</label>
 
-            <x-text-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full"
+            <input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full rounded-md bg-m text-s"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}" wire:navigate>
+        <div class="block items-center justify-end mt-0.5 mb-5">
+            <a class=" underline text-sm text-m hover:text-indigo-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}" wire:navigate>
                 {{ __('Already registered?') }}
             </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        </div>
+        <div class="flex items-center justify-center p-2 rounded-full hover:text-m hover:bg-s bg-m text-s font-semibold border-2 border-m">
+        <button class="w-80">
+            {{ __('Register') }}
+        </button>
         </div>
     </form>
 </div>

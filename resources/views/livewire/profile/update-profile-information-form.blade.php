@@ -31,8 +31,8 @@ new class extends Component
         $user = auth()->user();
 
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required','string','min:11', 'max:11'],
+            'name' => ['required', 'string', 'max:255', Rule::unique(User::class)->ignore($user->id)],
+            'phone' => ['required','string','min:11', 'max:11', Rule::unique(User::class)->ignore($user->id)],
             'address' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
 
