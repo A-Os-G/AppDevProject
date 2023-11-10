@@ -19,7 +19,7 @@ new class extends Component
     public function mount(): void
     {
         $this->name = auth()->user()->name;
-        $this->phone = auth()->user()->Phone;
+        $this->phone = auth()->user()->phone;
         $this->email = auth()->user()->email;
         $this->address = auth()->user()->address;
 

@@ -14,11 +14,45 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <livewire:welcome.navigation />
-            @endif
+        <div class="sm:flex">
+            <div class="w-8/12 p-4 bg-s">
+                <div class="overflow-hidden h-1/2 p-4 m-2 flex items-center sm:justify-center ">
+                    <img src="pics/logo.jpg" alt="b" class="w-1/2 h-3/4 p-4" style="border-top-left-radius: 25%; border-top-right-radius: 25%">
                 </div>
 
+                <div class="overflow-hidden h-1/2 p-4 mb-4 flex items-start sm:justify-center">
+                    <img src="pics/background.jpg" alt="second img" class="w-1/2 h-auto rounded-t-3xl">
+                </div>
+                
+            </div>
+
+            <div class="w-4/12 p-4 bg-m items-center justify-center">
+                
+                <div class="flex items-center justify-center mb-4 rounded-full hover:text-s hover:bg-m bg-s text-m font-semibold border-2 border-m">
+                    <button class="w-80">
+                        {{ __('Login') }}
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-center mb-4 rounded-full hover:text-s hover:bg-m bg-s text-m font-semibold border-2 border-m">
+                    <button class="w-80">
+                        {{ __('Register') }}
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-center mb-4 rounded-full hover:text-s hover:bg-m bg-s text-m font-semibold border-2 border-m">
+                    <button class="w-80">
+                        {{ __('Shop') }}
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-center mb-4 rounded-full hover:text-s hover:bg-m bg-s text-m font-semibold border-2 border-m">
+                    <button class="w-80">
+                        {{ __('Cart') }}
+                    </button>
+                </div>
+
+            </div>
+        </div>
     </body>
 </html>
