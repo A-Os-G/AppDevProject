@@ -48,35 +48,35 @@ new #[Layout('layouts.guest')] class extends Component
         <!-- Name -->
         <div class="text-m">
             <label for="name" :value="__('Name')" >Name</label>
-            <input wire:model="name" id="name" class="block mt-1 w-full rounded-md bg-m text-s" type="text" name="name" required autofocus autocomplete="name" />
+            <input wire:model="name" id="name" class="block m-0.5 w-full rounded-md bg-m text-m" type="text" name="name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Phone -->
-        <div class="mt-4 text-m">
+        <div class="mt-2 text-m">
             <label for="phone" :value="__('Phone')">Phone</label>
-            <input wire:model="phone" id="phone" class="block mt-1 w-full rounded-md bg-m text-s" type="text" phone="phone" required autofocus autocomplete="phone" />
+            <input wire:model="phone" id="phone" class="block m-0.5 w-full rounded-md bg-m text-s" type="text" phone="phone" required autofocus autocomplete="phone" />
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
         <!-- address -->
-        <div class="mt-4 text-m">
+        <div class="mt-2 text-m">
             <label for="address" :value="__('Address')">Address</label>
-            <input wire:model="address" id="address" class="block mt-1 w-full rounded-md bg-m text-s" type="text" address="address" required autofocus autocomplete="address" />
+            <input wire:model="address" id="address" class="block m-0.5 w-full rounded-md bg-m text-s" type="text" address="address" required autofocus autocomplete="address" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4 text-m">
+        <div class="mt-2 text-m">
             <label for="email" :value="__('Email')">Email</label>
-            <input wire:model="email" id="email" class="block mt-1 w-full rounded-md bg-m text-s" type="email" name="email" required autocomplete="username" />
+            <input wire:model="email" id="email" class="block m-0.5 w-full rounded-md bg-m text-s" type="email" name="email" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4 text-m">
+        <div class="mt-2 text-m">
             <label for="password" :value="__('Password')">Password</label>
 
-            <input wire:model="password" id="password" class="block mt-1 w-full rounded-md bg-m text-s"
+            <input wire:model="password" id="password" class="block m-0.5 w-full rounded-md bg-m text-s"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -85,10 +85,10 @@ new #[Layout('layouts.guest')] class extends Component
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4 text-m">
+        <div class="mt-2 text-m">
             <label for="password_confirmation" :value="__('Confirm Password')">Confirm Password</label>
 
-            <input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full rounded-md bg-m text-s"
+            <input wire:model="password_confirmation" id="password_confirmation" class="block m-0.5 w-full rounded-md bg-m text-s"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
