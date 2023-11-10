@@ -19,7 +19,7 @@ new class extends Component
     public function mount(): void
     {
         $this->name = auth()->user()->name;
-        $this->phone = auth()->user()->phone;
+        $this->phone = auth()->user()->Phone;
         $this->email = auth()->user()->email;
         $this->address = auth()->user()->address;
 
@@ -69,36 +69,36 @@ new class extends Component
 
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+        <h2 class="text-lg font-medium text-s">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+        <p class="mt-1 text-sm text-s">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
 
-    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
+    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6 ">
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
+            <label for="name" :value="__('Name')" class="text-s">Name</label>
+            <input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-full bg-s focus:bg-s border-gray-300 focus:border-m rounded-md shadow-sm text-m" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
-            <x-input-label for="phone" :value="__('Phone')" />
-            <x-text-input wire:model="phone" id="phone" name="phone" type="text" class="mt-1 block w-full" required autofocus autocomplete="phone" />
+            <label for="phone" :value="__('Phone')" class="text-s">Phone</label>
+            <input wire:model="phone" id="phone" name="phone" type="text" class="mt-1 block w-full bg-s focus:bg-s border-gray-300 focus:border-m rounded-md shadow-sm text-m" required autofocus autocomplete="phone" />
             <x-input-error class="mt-2" :messages="$errors->get('phone')" />
         </div>
 
         <div>
-            <label for="address" :value="__('Address')" />
+            <label for="address" :value="__('Address')" class="text-s"> Address</label>
             <input wire:model="address" id="address" name="address" type="text" class="mt-1 block w-full  bg-s focus:bg-s border-gray-300 focus:border-m rounded-md shadow-sm text-m" required autofocus autocomplete="address" />
             <x-input-error class="mt-2" :messages="$errors->get('address')" />
         </div>
 
         <div>
-            <label for="email" :value="__('Email')" />
+            <label for="email" :value="__('Email')" class="text-s">Email</label>
             <input wire:model="email" id="email" name="email" type="email" class="mt-1 block w-full  bg-s focus:bg-s border-gray-300 focus:border-m rounded-md shadow-sm text-m" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
@@ -122,7 +122,7 @@ new class extends Component
         </div>
 
         <div class="flex items-center gap-4">
-            <primary-button class="bg-s text-m rounded-lg px-3 py-2 hover:bg-m hover:text-s">{{ __('Save') }}</primary-button>
+            <button class="bg-s text-m rounded-lg px-3 py-2 hover:bg-m hover:text-s border">{{ __('Save') }}</button>
 
             <x-action-message class="mr-3" on="profile-updated">
                 {{ __('Saved.') }}
