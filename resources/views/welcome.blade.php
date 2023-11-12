@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>AdaProduction</title>
+        
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -14,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased">
-        
+
         <div class="sm:flex">
 
             <!--left-->
@@ -29,20 +30,20 @@
                 <div class="overflow-hidden flex sm:justify-center drop-shadow-xl">
                     <img src="pics/background.jpg" alt="second img" class="w-3/5 max-w-min" style="border-top-left-radius: 35%; border-top-right-radius: 35%">
                 </div>
-                
+
             </div>
 
             <!--Right-->
             <div class="flex flex-col w-5/12 bg-m space-y-3 items-center justify-center h-screen">
 
-            <hr class="w-80 border-s border-2">
+                  <hr class="w-80 border-s border-2">
 
-            <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
+              <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
+                 <button class="w-64 py-2 rounded">
                 <a href="{{ route('login') }}" class="w-full" wire:navigate>
-            <button class="w-64 py-2 rounded">
                             {{__('Shop')}}
+                        </a>
                         </button>
-                    </a>
                 </div>
 
                 <hr class="w-80 border-s border-2">

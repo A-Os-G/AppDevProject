@@ -48,7 +48,7 @@ new #[Layout('layouts.guest')] class extends Component
         <!-- Name -->
         <div class="text-m">
             <label for="name" :value="__('Name')" >Name</label>
-            <input wire:model="name" id="name" class="block m-0.5 w-full rounded-md bg-m text-m" type="text" name="name" required autofocus autocomplete="name" />
+            <input wire:model="name" id="name" class="block m-0.5 w-full rounded-md bg-m text-s" type="text" name="name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
@@ -100,8 +100,8 @@ new #[Layout('layouts.guest')] class extends Component
                 {{ __('Already registered?') }}
             </a>
         </div>
-        <div class="flex items-center justify-center p-2 rounded-full hover:text-m hover:bg-s bg-m text-s font-semibold border-2 border-m">
-        <button class="w-80">
+        <div class="flex items-center justify-center rounded-full hover:text-m hover:bg-s bg-m text-s font-semibold border-2 border-m">
+        <button class="w-80  p-2">
             {{ __('Register') }}
         </button>
         </div>

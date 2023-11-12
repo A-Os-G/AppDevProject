@@ -109,8 +109,8 @@ new #[Layout('layouts.guest')] class extends Component
             @endif
         </div>
 
-        <div class="flex items-center justify-center p-2 rounded-full hover:text-m hover:bg-s bg-m text-s font-semibold border-2 border-m">
-            <button class="w-80">
+        <div class="flex items-center justify-center rounded-full hover:text-m hover:bg-s bg-m text-s font-semibold border-2 border-m">
+            <button class="w-80 p-2">
             {{ __('Log in') }}
             <button>
             </div>
