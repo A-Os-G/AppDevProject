@@ -37,7 +37,6 @@
             <div class="flex flex-col w-5/12 bg-m space-y-3 items-center justify-center h-screen">
 
                   <hr class="w-80 border-s border-2">
-                  <hr class="w-80 border-s border-2">
 
               <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
                  <button class="w-64 py-2 rounded">
