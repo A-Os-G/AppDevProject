@@ -16,10 +16,6 @@
     </head>
     <body class="antialiased">
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7883a66e2d48d984ba8c05ace8182c53f7486be4
         <div class="sm:flex">
 
             <!--left-->
@@ -41,7 +37,6 @@
             <div class="flex flex-col w-5/12 bg-m space-y-3 items-center justify-center h-screen">
 
                   <hr class="w-80 border-s border-2">
-<<<<<<< HEAD
                   <hr class="w-80 border-s border-2">
 
               <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
@@ -50,16 +45,6 @@
                             {{__('Shop')}}
                         </a>
                         </button>
-=======
-                <hr class="w-80 border-s my-4 border-opacity-25 border-2">
-
-                <div class="flex items-center justify-center p-4 w-100 hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold">
-                    <button class="w-80">
-                        <a href="{{ route('login') }}" class="w-full" wire:navigate>
-                            {{__('Log in')}}
-                        </a>
-                    </button>
->>>>>>> 7883a66e2d48d984ba8c05ace8182c53f7486be4
                 </div>
 
                 <hr class="w-80 border-s border-2">
