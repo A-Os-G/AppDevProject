@@ -15,6 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased">
+
 <<<<<<< HEAD
 
 =======
@@ -39,6 +40,7 @@
             <!--Right-->
             <div class="flex flex-col w-5/12 bg-m space-y-3 items-center justify-center h-screen">
 
+                  <hr class="w-80 border-s border-2">
 <<<<<<< HEAD
                   <hr class="w-80 border-s border-2">
 
