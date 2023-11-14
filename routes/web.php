@@ -25,6 +25,14 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
+Route::view('shop', 'shop')
+    ->middleware(['auth'])
+    ->name('shop');
+
+Route::view('cart', 'cart')
+    ->middleware(['auth'])
+    ->name('cart');
+
 Route::post('logout', function () 
 {
     Auth::logout();
