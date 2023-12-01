@@ -27,4 +27,14 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
-}
+
+    // protected function authenticated()
+    // {
+    //         if(\Auth::user()->role_as == '1'){
+    //             return redirect('/admin/dashboard')->with('message','Welcome To Dashboard');
+    //         }
+    //         else{
+    //             return redirect('/dashboard')->with('status','successful');
+    //         }
+    //     }
+    }
