@@ -11,7 +11,7 @@
         </div>
 
         <div class="card-body">
-            <form action="{{  url('admin/products')  }}" method="POST" enctype="mulipart/form-data">
+            <form action="{{  url('admin/products')  }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -103,8 +103,9 @@
 
                     <div class="tab-pane fade border p-3" id="image" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
                             <div class="mb-3">
-                            <label >Upload Product Images</label>
-                            <input type="file" name="image[]" multiple class="form-control">
+                                <label >Upload Product Images</label>
+                                <input type="file" name="image" id="image" class="form-control"/>
+                            </div>
                         </div>
                     </div>
                 </div>
