@@ -42,11 +42,14 @@ Route::post('logout', function ()
 
 require __DIR__.'/auth.php';
 
+Route::get('/shop', [App\Http\Controllers\User\FrontendController::class, 'categories'])->name('shop');
+Route::get('/shop/{category_slug}', [App\Http\Controllers\User\FrontendController::class, 'products']);
+Route::get('/shop/{category_slug}/{product_slug}', [App\Http\Controllers\User\FrontendController::class, 'productView']);
+
+
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index']);
-
-
-
+    
     //category routes
 
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
@@ -56,6 +59,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
         Route::get('/category/{category}/edit', 'edit');
         Route::put('/category/{category}', 'update');
     });
+
+    
 
     Route::get('/brands',App\Livewire\Admin\Brand\Index::class);
 
@@ -71,3 +76,5 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     });
 
 });
+
+
