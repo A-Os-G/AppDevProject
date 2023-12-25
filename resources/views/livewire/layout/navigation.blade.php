@@ -22,23 +22,29 @@ new class extends Component
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" wire:>
+                    <a href="{{ url('/dashboard') }}" wire:>
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                    <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
+                        <a href="{{url('/dashboard')}}">
                         {{ __('Home') }}
-                    </x-nav-link>
+                        </a>
+                    </div>
                     <!-- Doen't have a route yet -->
-                    <x-nav-link :href="route('shop')" :active="request()->routeIs('shop')" wire:navigate>
+                    <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
+                        <a href="{{url('/shop')}}">
                         {{ __('Shop') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('cart')" :active="request()->routeIs('cart')" wire:navigate>
+                        </a>
+                    </div>
+                    <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
+                        <a href="{{url('/cart')}}">
                         {{ __('Cart') }}
-                    </x-nav-link>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -58,9 +64,11 @@ new class extends Component
                     </x-slot>
                         
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile')" wire:navigate>
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+                        <a href='/profile'>
+                            <div class="block w-full px-4 py-2 text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                                {{ __('Profile') }}
+                            </div>
+                        </a>
 
                         <!-- Authentication -->
                         <button wire:click="logout" class="w-full text-left">

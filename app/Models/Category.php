@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use App\Http\Requests;
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

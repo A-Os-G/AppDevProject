@@ -13,6 +13,11 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- style -->
+        <link href="{{ asset('assets/css/custom.css') }}">
+
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen dark:bg-m">
@@ -29,7 +34,7 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                {{ $slot }} 
             </main>
         </div>
     </body>

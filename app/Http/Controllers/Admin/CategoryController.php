@@ -27,12 +27,13 @@ public function store(Request $request) {
     $category->slug = $request->slug; 
     $category->description =  $request->description; 
         
+    $uploadPath = 'pics/category/';
         if ($request->hasFile('image')){
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;  
             $file->move('pics/category/',$filename);  
-            $category->image = $filename;
+            $category->image = $uploadPath.$filename;
         }    
 
 
