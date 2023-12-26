@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Livewire\Component;
+use App\Http\Controllers\Frontend;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,9 @@ require __DIR__.'/auth.php';
 
 
 route::get('shop',[App\Http\Controllers\Frontend\FrontendController::class,'categories']);
+Route::get('/shop/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, "products"]);
+Route::get('/shop/{category_slug}/{product_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'productView']);
+
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index']);

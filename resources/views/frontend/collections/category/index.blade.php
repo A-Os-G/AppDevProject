@@ -19,7 +19,7 @@
 
                         <div class="category-card rounded-sm mb-24 bg-s shadow text-lg font-semibold text-m ">
                             
-                            <a href="{{ url('/collections/'.$c->slug) }}" class="no-underline ">
+                            <a href="{{ url('/shop/'.$c->slug) }}" class="no-underline ">
 
                                 <div class="category-card-img ">
                                     <img src="{{  asset($c->image)  }}" class="w-100 px-10 py-5 max-h-64 overflow-hidden " alt="Laptop">
