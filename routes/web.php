@@ -42,7 +42,7 @@ Route::post('logout', function ()
 
 require __DIR__.'/auth.php';
 
-Route::get('/shop', [App\Http\Controllers\User\FrontendController::class, 'categories'])->name('shop');
+Route::get('/shop', [App\Http\Controllers\Frontend\FrontendController::class, 'categories'])->name('shop');
 Route::get('/shop/{category_slug}', [App\Http\Controllers\User\FrontendController::class, 'products']);
 Route::get('/shop/{category_slug}/{product_slug}', [App\Http\Controllers\User\FrontendController::class, 'productView']);
 

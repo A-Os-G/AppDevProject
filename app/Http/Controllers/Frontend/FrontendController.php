@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ class FrontendController extends Controller
 {
     public function categories(){
         $categories = Category::where('status','0')->get();
-        return view('frontend.collections.category.shop', compact('categories'));
+        return view('frontend.collections.category.shop',compact('categories'));
     }
 
     public function products($category_slug){
