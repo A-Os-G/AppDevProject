@@ -34,7 +34,8 @@
                     <div class="col-md-6 mb-3">
                         <label>Image</label>
                         <input type="file" name="image" value="{{ $category->image }}" class="form-control"/>
-                        <img src="{{ asset('/pics/category/'.$category->image) }}" width="60px" height="60px">
+                        <img src="{{ url($category->image) }}" width="100px" height="100px">
+
                     </div>
 
                     <div class="col-md-6 mb-3">

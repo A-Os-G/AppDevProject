@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
+use App\Livewire\Component;
+use App\Http\Controllers\Frontend;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,7 @@ Route::view('shop', 'shop')
     ->middleware(['auth'])
     ->name('shop');
 
+
 Route::view('cart', 'cart')
     ->middleware(['auth'])
     ->name('cart');
@@ -42,15 +45,14 @@ Route::post('logout', function ()
 
 require __DIR__.'/auth.php';
 
-Route::get('/shop', [App\Http\Controllers\Frontend\FrontendController::class, 'categories'])->name('shop');
-Route::get('/shop/{category_slug}', [App\Http\Controllers\User\FrontendController::class, 'products']);
-Route::get('/shop/{category_slug}/{product_slug}', [App\Http\Controllers\User\FrontendController::class, 'productView']);
+
+route::get('shop',[App\Http\Controllers\Frontend\FrontendController::class,'categories']);
+Route::get('/shop/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, "products"]);
+Route::get('/shop/{category_slug}/{product_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'productView']);
 
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index']);
-    
-    //category routes
 
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
         Route::get('/category', 'index');

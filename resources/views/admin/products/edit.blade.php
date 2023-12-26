@@ -11,7 +11,7 @@
         </div>
 
         <div class="card-body">
-            <form action="{{  url('admin/products/'.$product->id)  }}" method="POST" enctype="mulipart/form-data">
+            <form action="{{  url('admin/products/'.$product->id)  }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <nav>
@@ -103,17 +103,13 @@
                     </div>
 
                     <div class="tab-pane fade border p-3" id="image" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
-                            <div class="mb-3">
+                        <div class="mb-3">
                             <label >Upload Product Images</label>
-                            <input type="file" name="image[]" multiple class="form-control">
-                        </div>
+                            <input type="file" name="image"  class="form-control">
+                        </div> 
                         <div>
-                            @if($product->productImages)
-                                @foreach($product->productImages as $image)
-                            <img src="{{ asset('$image->image') }}" alt="Img" style="width: 80px; height:80px;" class="me-4 border">
-                                @endforeach
-                            @else
-                            <h5>No Image Added</h5>
+                            @if($product->image)
+                            <img src="{{ url($product->image)}}" width="100px" height="100px">
                             @endif
                         </div>
                     </div>

@@ -25,16 +25,15 @@ public function store(Request $request) {
     $category = new Category;
     $category->name = $request->name;
     $category->slug = $request->slug; 
-    $category->description =  $request->description;
-    
-    $picPath = 'pics/category/';
+    $category->description =  $request->description; 
         
+    $uploadPath = 'pics/category/';
         if ($request->hasFile('image')){
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;  
             $file->move('pics/category/',$filename);  
-            $category->image = $picPath.$filename;
+            $category->image = $uploadPath.$filename;
         }    
 
 
