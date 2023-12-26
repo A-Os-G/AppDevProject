@@ -11,7 +11,7 @@ class FrontendController extends Controller
 {
     public function categories(){
         $categories = Category::where('status','0')->get();
-        return view('contents.shop', compact('categories'));
+        return view('frontend.collections.category.shop', compact('categories'));
     }
 
     public function products($category_slug){
