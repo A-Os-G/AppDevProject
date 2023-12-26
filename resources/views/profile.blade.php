@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <x-slot name="main">
+    <x-slot name="slot">
         <div class="pb-12 bg-s">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                 <div class="p-4 sm:p-8 bg-m text-s shadow sm:rounded-lg">

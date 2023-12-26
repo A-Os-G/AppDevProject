@@ -39,7 +39,7 @@ Route::view('cart', 'cart')
 Route::post('logout', function () 
 {
     Auth::logout();
-    return redirect('/');
+    return redirect('/login');
 }
 )->name('logout');
 
