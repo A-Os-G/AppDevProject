@@ -36,7 +36,7 @@
                 <hr class="w-80 border-s border-2">
 
                 <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
-                    <a href="{{ route('shop') }}" class="w-full" wire:navigate>
+                    <a href="{{ url('/shop') }}"class="w-full" wire:navigate>
                 <button class="w-64 py-2 rounded">
                             {{__('Shop')}}
                         </button>
@@ -46,7 +46,7 @@
                 <hr class="w-80 border-s border-2">
 
                 <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
-                    <a href="{{ route('cart') }}" class="w-full" wire:navigate>
+                    <a href="{{ url('/cart') }}" class="w-full" wire:navigate>
                 <button class="w-64 py-2 rounded">
                             {{__('Cart')}}
                         </button>
@@ -56,7 +56,7 @@
                 <hr class="w-80 border-s border-2">
 
                 <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
-                    <a href="{{ route('profile') }}" class="w-full" wire:navigate>
+                    <a href="{{ url('/profile') }}" class="w-full" wire:navigate>
                     <button class="w-64 py-2 rounded">
                             {{__('Profile')}}
                         </button>

@@ -17,7 +17,7 @@
                             <div class="category-card mb-6 px-4 py-2 border-b bg-m">
                                 <a href="{{url('/shop/'.$categoryItem->slug)}}">
                                     <div class="category-card-img max-h-64 max-w-20 overflow-hidden border-b">
-                                        <img src="{{asset("$categoryItem->image")}}" class="w-50" alt="Laptop">
+                                        <img src="{{asset('$categoryItem->image')}}" class="w-50" alt="Laptop">
                                     </div>
                                     <div class="category-card-body px-4 py-2 text-s">
                                         <h5>{{$categoryItem->name}}</h5>
