@@ -42,7 +42,7 @@ new class extends Component
                     </div>
                     <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
                         <a href="{{url('/cart')}}">
-                        {{ __('Cart') }}
+                        {{ __('Cart') }} (<livewire:frontend.cart.cart-count/>)
                         </a>
                     </div>
                 </div>

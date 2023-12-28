@@ -44,7 +44,7 @@
                     </div>
 
                     @empty
-                    <div class="md:w-full">
+                    <div class="md:w-full text-s">
                         <h5>No Products available for {{$category->name}}</h5>
                     </div>
                     @endforelse

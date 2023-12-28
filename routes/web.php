@@ -50,6 +50,11 @@ route::get('shop',[App\Http\Controllers\Frontend\FrontendController::class,'cate
 Route::get('/shop/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, "products"]);
 Route::get('/shop/{category_slug}/{product_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'productView']);
 
+Route::middleware(['auth'])->group(function(){
+    Route::get('/cart', [App\Http\Controllers\Frontend\CartController::class, 'index']);
+    Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
+});
+
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index']);
