@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     @empty
-                    <div class="col-md-12">
+                    <div class=" text-s">
                         <h5>No Categories Available</h5>
                     </div>
                     @endforelse

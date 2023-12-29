@@ -40,8 +40,9 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <a href="" class="btn1 border border-s py-2 px-4 rounded text-sm mt-4 hover:text-s text-m hover:bg-m bg-s">
-                                <b class="fa fa-shopping-cart"> Add To Cart</b></a>
+                            <button type="button" wire:click="addToCart({{$product->id}})" class="btn1 border border-s py-2 px-4 rounded text-sm mt-4 hover:text-s text-m hover:bg-m bg-s">
+                                <i class="fa fa-shopping-cart"> Add To Cart</i>
+                            </button>
                         </div>
                         <div class="mt-3">
                             <div class="mb-2 text-m ">

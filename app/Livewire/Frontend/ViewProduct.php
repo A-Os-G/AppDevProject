@@ -2,7 +2,9 @@
 
 namespace App\Livewire\Frontend;
 
+use App\Models\Cart;
 use Livewire\Component;
+
 
 class ViewProduct extends Component
 {
@@ -21,6 +23,54 @@ class ViewProduct extends Component
         $this->quantityCount++;
     }
     
+    public function addToCart(int $productId){
+        if($this->product->where('id', $productId)->where('status', 0)->exists()){
+            if($this->product->quantity > 0){
+                if(Cart::where('user_id', auth()->user()->id)
+                        ->where('product_id',$productId)
+                        ->exists())
+                {
+                    //this product is already added
+                }
+                else{
+                    if($this->product->quantity > $this->quantityCount){
+                        //insert product to cart
+                        Cart::create([
+                            'user_id' => auth()->user()->id,
+                            'product_id' => $productId,
+                            'quantity' => $this->quantityCount
+                        ]);
+                        $this->dispatch('CartAddedUpdated');
+                    }
+                    else{
+                        $this->dispatch('message', [
+                            'text'=> 'Only ' .$this->product->quantity. ' Quantity Available',
+                            'type'=> 'warning',
+                            'status' => 404
+                        ]);
+    
+                        //dispatchBrowserEvent not working
+                    }
+                }
+            }
+            else{
+                $this->dispatch('message', [
+                    'text'=> 'out of stock',
+                    'type'=> 'warning',
+                    'status' => 404
+                ]);
+                //dispatchBrowserEvent not working
+            }
+        }
+        else{
+            $this->dispatch('message', [
+                'text'=> 'product does not exists',
+                'type'=> 'warning',
+                'status' => 404
+            ]);
+            //dispatchBrowserEvent not working
+        }
+    }
 
     public function render()
     {
