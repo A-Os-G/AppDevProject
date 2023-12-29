@@ -64,11 +64,11 @@
                                 <label>Select Payment Mode: </label>
                                     <div class="tab-content md:col-span-9 pr-3" id="v-pills-tabContent">
                                         <!--this was supposed to have hidden clickable buttons using-->
-                                        <div class="tab-pane fade" id="cashOnDeliveryTab" role="tabpanel" aria-labelledby="cashOnDeliveryTab-tab" tabindex="0">
-                                            <button type="button" wire:click="codOrder" class="btn btn-primary">Place Order (Cash on Delivery)</button>
+                                        <div class="tab-pane fade mb-2" id="cashOnDeliveryTab">
+                                            <button type="button" wire:click="codOrder" class="w-100 bg-m hover:bg-s hover:text-m text-s font-bold py-2 px-4 rounded inline-block">Place Order (Cash on Delivery)</button>
                                         </div>
-                                        <div class="tab-pane fade" id="onlinePayment" role="tabpanel" aria-labelledby="onlinePayment-tab" tabindex="0">
-                                            <button type="button" class="btn btn-warning">Pay Now (Online Payment)</button>
+                                        <div class="tab-pane " id="onlinePayment">
+                                            <button type="button" wire:click="codOrder" class="w-100 bg-m hover:bg-s hover:text-m text-s font-bold py-2 px-4 rounded inline-block">Pay Now (Online Payment)</button>
                                         </div>
                                     </div>
                                 </div>
