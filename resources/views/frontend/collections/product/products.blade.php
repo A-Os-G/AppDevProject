@@ -7,13 +7,13 @@
 
     <x-slot name="slot">
         <div class="py-3 py-md-5 bg-m">
-            <div class="containe">
+            <div class="container">
                 <div class="row flex flex-wrap">
 
                     @forelse ($products as $productItem)
 
-                    <div class="md:w-1/4 w-full lg:w-1/5 xl:w-1/6 mb-2 mx-10">
-                        <div class="product-card bg-s border border-s rounded-md mb-24 relative">
+                    <div class="md:w-1/3 w-full lg:w-1/4 xl:w-1/4 my-4 mx-10">
+                        <div class="product-card bg-s border border-s rounded-md mb-2 relative">
                             <div class="product-card-img max-h-65 overflow-hidden border-b border-gray-300">
 
                                 @if ($productItem->quantity > 0)
@@ -44,7 +44,7 @@
                     </div>
 
                     @empty
-                    <div class="md:w-full">
+                    <div class="md:w-full text-s m-2">
                         <h5>No Products available for {{$category->name}}</h5>
                     </div>
                     @endforelse

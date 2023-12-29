@@ -61,9 +61,10 @@ public function store(Request $request) {
         $category->slug = $request->slug; 
         $category->description =  $request->description; 
             
+
         if ($request->hasFile('image')){
             
-            $path ='pics/category/'.$category->image;
+            $path ='pics/category/';
                 if(File::exists($path)){
                     File::delete($path);
                 }
@@ -72,7 +73,7 @@ public function store(Request $request) {
                 $ext = $file->getClientOriginalExtension();
                 $filename = time().'.'.$ext;  
                 $file->move('pics/category/',$filename);  
-                $category->image = $filename;
+                $category->image = $path.$filename;
             }    
     
     

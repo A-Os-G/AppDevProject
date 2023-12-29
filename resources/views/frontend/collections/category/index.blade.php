@@ -7,19 +7,19 @@
 
 
 
-    <div class=" text-lg font-semibold text-s ">
+    <div class=" text-lg font-semibold text-s">
         
         <div class="py-3 py-md-5 bg-light ">
             <div class="container">
-                <div class="row">
+                <div class="row flex flex-wrap">
                     
                     @forelse($categories as $c)
                     
-                    <div class="row-6 row-md-3 float-left m-5">
+                    <div class="md:w-1/3 w-full lg:w-1/4 xl:w-1/4 mb-2 mx-10">
 
-                        <div class="category-card rounded-sm mb-24 bg-s shadow text-lg font-semibold text-m ">
+                        <div class="category-card rounded-sm mb-2 bg-s shadow text-lg font-semibold text-m ">
                             
-                            <a href="{{ url('/shop/'.$c->slug) }}" class="no-underline ">
+                            <a href="{{ url('/shop/'.$c->slug) }}" class="no-underline center">
 
                                 <div class="category-card-img ">
                                     <img src="{{  asset($c->image)  }}" class="w-100 px-10 py-5 max-h-64 overflow-hidden " alt="Laptop">
