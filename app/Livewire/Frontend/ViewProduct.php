@@ -55,8 +55,8 @@ class ViewProduct extends Component
                             'type'=> 'warning',
                             'status' => 404
                         ]);
-    
-                        //dispatchBrowserEvent not working
+                        session()->flash('message','only!'. $this->product->quantity.'Quantity is Available ');
+
                     }
                 }
             }
@@ -66,7 +66,8 @@ class ViewProduct extends Component
                     'type'=> 'warning',
                     'status' => 404
                 ]);
-                //dispatchBrowserEvent not working
+                session()->flash('message','out of stock');
+
             }
         }
         else{
@@ -75,7 +76,6 @@ class ViewProduct extends Component
                 'type'=> 'warning',
                 'status' => 404
             ]);
-            //dispatchBrowserEvent not working
         }
     }
 
