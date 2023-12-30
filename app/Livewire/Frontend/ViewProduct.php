@@ -33,9 +33,6 @@ class ViewProduct extends Component
                     //this product is already added
                     $this->dispatch('checkCartCount');
                     session()->flash('message','Product Already in the Cart!');
-
-
-
                 }
                 else{
                     if($this->product->quantity > $this->quantityCount){

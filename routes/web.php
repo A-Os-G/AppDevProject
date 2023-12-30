@@ -52,9 +52,10 @@ Route::get('/shop/{category_slug}/{product_slug}', [App\Http\Controllers\Fronten
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/cart', [App\Http\Controllers\Frontend\CartController::class, 'index']);
-    Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index'])->name('checkout');
-    Route::post('/session', [App\Http\Controllers\Frontend\CheckoutController::class, 'session'])->name('session');
-    Route::get('/success', [App\Http\Controllers\Frontend\CheckoutController::class, 'success'])->name('success');
+    Route::get('/checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
+
+    Route::get('orders', [App\Http\Controllers\Frontend\OrderController::class,'index']);
+    Route::get('orders/{orderId}', [App\Http\Controllers\Frontend\OrderController::class,'show']);
 });
 
 Route::get('thank-you', [App\Http\Controllers\Frontend\FrontendController::class,'thankyou']);
@@ -84,6 +85,16 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
         Route::get('/products/{product_id}/delete', 'destroy');
 
     });
+
+    Route::controller(App\Http\Controllers\Admin\OrderController::class)->group(function () {
+        Route::get('/orders', 'index');
+        Route::get('/orders/{orderId}', 'show');
+        Route::put('/orders/{orderId}', 'updateOrderStatus');
+
+
+    });
+
+
 
 });
 
