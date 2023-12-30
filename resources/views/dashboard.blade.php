@@ -56,6 +56,16 @@
                 <hr class="w-80 border-s border-2">
 
                 <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
+                    <a href="{{ url('/orders') }}" class="w-full" wire:navigate>
+                <button class="w-64 py-2 rounded">
+                            {{__('Orders')}}
+                        </button>
+                    </a>
+                </div>
+
+                <hr class="w-80 border-s border-2">
+
+                <div class="flex items-center justify-center hover:text-m hover:bg-s bg-m text-s text-xl font-extrabold rounded-md">
                     <a href="{{ url('/profile') }}" class="w-full" wire:navigate>
                     <button class="w-64 py-2 rounded">
                             {{__('Profile')}}

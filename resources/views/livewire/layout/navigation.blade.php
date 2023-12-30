@@ -44,6 +44,11 @@ new class extends Component
                         {{ __('Cart') }} (<livewire:frontend.cart.cart-count/>)
                         </a>
                     </div>
+                    <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
+                        <a href="{{url('/orders')}}">
+                        {{ __('Order') }}
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -111,6 +116,11 @@ new class extends Component
             <a href='/cart'>
                 <div class="block w-full px-4 py-2 text-bold text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
                     {{ __('Cart') }}
+                </div>
+            </a>
+            <a href='/orders'>
+                <div class="block w-full px-4 py-2 text-bold text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                    {{ __('Orders') }}
                 </div>
             </a>
         </div>

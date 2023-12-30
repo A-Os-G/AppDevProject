@@ -8,7 +8,6 @@
     <x-slot name="slot">
 
         <div class="py-3 pyt-md-4">
-            <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
                         @if (session('massage'))
@@ -16,7 +15,7 @@
                             {{ session('massage') }}
                         </div>
                         @endif
-                        <div class="message-container text-center">
+                        <div class="message-container text-center mt-4">
                             <div class="text-3xl text-s font-bold mb-8">Click here for more shopping</div>
                                 <a href="{{ url('/shop') }}" class="text-blue-500 font-bold hover:underline">Go to Shopping</a>
                         </div>

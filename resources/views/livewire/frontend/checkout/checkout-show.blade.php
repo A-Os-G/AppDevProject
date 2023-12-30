@@ -59,7 +59,7 @@
                                     <div class="tab-pane fade mb-2" id="cashOnDeliveryTab">
                                         <button type="button" wire:click="codOrder" class="w-100 bg-m border-2 border-s hover:bg-s hover:text-m hover:border-m hover:border-2 text-s font-bold py-2 px-4 rounded inline-block">Place Order (Cash on Delivery)</button>
                                     </div>
-                                    <div class="tab-pane " id="onlinePayment">
+                                    <div class="tab-pane" id="onlinePayment">
                                         <button type="button" wire:click="codOrder" class="w-100 bg-m border-2 border-s hover:bg-s hover:text-m hover:border-m hover:border-2 text-s font-bold py-2 px-4 rounded inline-block">Pay Now (Online Payment)</button>
                                     </div>
                                 </div>
