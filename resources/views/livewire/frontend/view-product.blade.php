@@ -34,15 +34,22 @@
                         </div>
                         <div class="mt-2">
                             <div class="input-group">
-                                <span class="btn1 border border-s py-2 px-4 m-1 rounded text-sm mt-4 hover:bg-s hover:text-m" wire:click="decrementQuantity"><i class="fa fa-minus"></i></span>
+                                <span class="btn1 border border-s py-2 px-4 m-1 rounded text-sm mt-4 text-s hover:bg-s hover:text-m" wire:click="decrementQuantity"><i class="fa fa-minus"></i></span>
                                 <input type="text" wire:model="quantityCount" value="{{$this->quantityCount}}" readonly class="input-quantity border bg-s text-m text-bold text-l py-2 px-4 rounded mt-4 w-14 outline-none text-center" />
-                                <span class="btn1 border border-s py-2 px-4 m-1 rounded text-sm mt-4 hover:bg-s hover:text-m" wire:click="incrementQuantity"><i class="fa fa-plus"></i></span>
+                                <span class="btn1 border border-s py-2 px-4 m-1 rounded text-sm mt-4 text-s hover:bg-s hover:text-m" wire:click="incrementQuantity"><i class="fa fa-plus"></i></span>
                             </div>
                         </div>
                         <div class="mt-3">
                             <button type="button" wire:click="addToCart({{$product->id}})" class="btn1 border border-s py-2 px-4 rounded text-sm mt-4 hover:text-s text-m hover:bg-m bg-s">
                                 <i class="fa fa-shopping-cart"> Add To Cart</i>
+                            
                             </button>
+                            <div class="text-red-600">
+                                @if(session()->has('message'))
+                                <div>{{session('message')}}</div>
+                                @endif
+                            </div>
+                
                         </div>
                         <div class="mt-3">
                             <div class="mb-2 text-m ">

@@ -1,10 +1,10 @@
-<div class="py-3 md:py-5 bg-s">
+<div class="py-3 md:py-5 bg-m">
     <div class="container">    
         <div class="flex flex-wrap">
             <div class="w-full">
                 <div class="shopping-cart">
 
-                    <div class="cart-header p-2.5 hidden md:hidden lg:block">
+                    <div class="cart-header p-2.5 hidden md:hidden lg:block text-s">
                         <div class="flex flex-wrap">
                             <div class="w-1/2">
                                 <h4 class="text-lg font-bold mb-0">Products</h4>
@@ -26,14 +26,14 @@
 
                     @forelse ($cart as $cartItem)
                         @if ($cartItem->product)
-                        <div class="cart-item bg-m text-s shadow-md p-3 mt-3 font-semibold">
+                        <div class="cart-item bg-s text-m shadow-md p-3 mt-3 mx-2 rounded font-semibold">
                             <div class="flex flex-wrap">
                                 <div class="md:w-1/2 my-auto">
                                     <a href="{{url('/shop/'.$cartItem->product->category->slug.'/'.$cartItem->product->slug)}}">
                                         <label class="product-name flex items-center ">
 
                                             @if ($cartItem->product->image)
-                                                <img src="{{asset($cartItem->product->image)}}" style="width: 50px; height: 50px" alt="">
+                                                <img src="{{asset($cartItem->product->image)}}" style="width: 80px; height: 80px" alt="">
                                             @endif
                                             <p class="px-4">{{$cartItem->product->name}}</p>
                                         </label>
@@ -45,9 +45,9 @@
                                 <div class="md:w-1/6 w-6/12 my-auto">
                                     <div class="quantity">
                                         <div class="input-group">
-                                            <button type="button" wire:loading.attr="disabled" wire:click="decrementQuantity({{$cartItem->id}})" class="btn1 border border-solid border-white mr-3 rounded-none text-xs px-3 py-2 hover:bg-s hover:text-m"><i class="fa fa-minus"></i></button>
-                                            <input type="text" value="{{$cartItem->quantity}}" class="border text-black border-black border-solid mr-3 text-center text-sm w-2/5" />
-                                            <button type="button" wire:loading.attr="disabled" wire:click="incrementQuantity({{$cartItem->id}})" class="btn1 border border-solid border-white mr-3 rounded-none text-xs px-3 py-2 hover:bg-s hover:text-m"><i class="fa fa-plus"></i></button>
+                                            <button type="button" wire:loading.attr="disabled" wire:click="decrementQuantity({{$cartItem->id}})" class="btn1 border border-solid border-m mr-3 rounded-none text-xs px-3 py-2 hover:bg-m hover:text-s"><i class="fa fa-minus"></i></button>
+                                            <input type="text" value="{{$cartItem->quantity}}" class="border text-m border-m border-solid mr-3 text-center text-sm w-1/5" />
+                                            <button type="button" wire:loading.attr="disabled" wire:click="incrementQuantity({{$cartItem->id}})" class="btn1 border border-solid border-m mr-3 rounded-none text-xs px-3 py-2 hover:bg-m hover:text-s"><i class="fa fa-plus"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="md:w-1/6 w-6/12 my-auto">
                                     <div class="remove">
-                                        <button type="button" wire:loading.attr="disabled" wire:click="removeCartItem({{$cartItem->id}})" class=" border hover:bg-red-500 text-s text-sm px-3 py-2 rounded-md">
+                                        <button type="button" wire:loading.attr="disabled" wire:click="removeCartItem({{$cartItem->id}})" class=" border hover:bg-red-500 text-s bg-m text-sm px-3 py-2 rounded-md">
                                             <span wire:loading.remove wire:target="removeCartItem({{$cartItem->id}})">
                                                 <i class="fa fa-trash"></i> Remove
                                             </span>
@@ -74,24 +74,19 @@
                         
                         
                     @empty
-                        <div class="text-2xl">No Cart Items Available</div>
+                        <div class="text-2xl m-4 text-s">No Cart Items Available</div>
                     @endforelse
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-wrap">
-            <div class="w-8/12 md:my-auto mt-3">
-                <h4 class="text-lg">
-                    <a href="{{url('/shop')}}" class="">Buy More!</a>
-                </h4>
-            </div>
-            <div class="w-4/12 mt-3">
-                <div class="shadow-sm bg-s text-m p-3">
+        <div class="flex flex-wrap justify-end">
+            <div class="w-4/12">
+                <div class="shadow-sm text-s p-3 float-right">
                     <h4 class="font-semibold">Total: 
-                        <span class="justify-end">Rm {{$totalPrice}}</span>
+                        <span>Rm {{$totalPrice}}</span>
                     </h4>
-                    <hr><a href="{{url('/checkout')}}" class="w-100 bg-m hover:bg-blue-700 text-s font-bold py-2 px-4 rounded inline-block">Checkout</a>
+                    <a href="{{url('/checkout')}}" class="w-100 bg-s hover:bg-blue-700 hover:text-s text-m font-bold py-2 px-4 rounded inline-block mr-8">Checkout</a>
                 </div>
             </div>
         </div>

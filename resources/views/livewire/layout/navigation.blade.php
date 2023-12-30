@@ -34,7 +34,6 @@ new class extends Component
                         {{ __('Home') }}
                         </a>
                     </div>
-                    <!-- Doen't have a route yet -->
                     <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
                         <a href="{{url('/shop')}}">
                         {{ __('Shop') }}

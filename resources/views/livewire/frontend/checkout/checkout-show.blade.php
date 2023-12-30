@@ -1,74 +1,67 @@
 <div>
-    <div class="py-3 md:py-4 checkout">
+    <div class="checkout">
         <div class="container">
-            <h4 class="font-semibold text-lg text-s">Checkout</h4>
-            <hr>
-
             @if ($this->totalProductAmount != '0')
-            <div class="row">
-                <div class="md:col-span-12 mb-4">
-                    <div class="shadow bg-s p-3">
-                        <h4 class="text-primary">
-                            Item Total Amount :
-                            <span class="justify-end">Rm {{$this->totalProductAmount}}</span>
+            <div class="row mt-4">
+                <div class="max-w-5xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+
+                    <div class="shadow bg-s py-3 text-center rounded">
+                        <h4 class="text-primary text-m text-lg">
+                            <b>Item Total Amount :</b>
+                            <b><span class="justify-end">Rm {{$this->totalProductAmount}}</span></b>
                         </h4>
-                        <hr>
                         <small>* Items will be delivered in 3 - 5 days.</small>
                         <br/>
-                        <small>* Tax and other charges are included ?</small>
+                        <small>* Tax and other charges are included.</small>
                     </div>
                 </div>
 
 
-                <div class="md:col-span-12">
-                    <div class="shadow bg-s p-3">
-                        <h4 class="text-primary">
+                <div class="max-w-5xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="shadow bg-s py-3 text-center text-m rounded">
+                        <h4 class="text-primary pb-2 text-xl font-bold">
                             Basic Information
                         </h4>
-                        <hr>
-
-
-                       
                         <div class="row">
                             <div class="md:col-span-6 mb-3">
-                                <label>Full Name</label>
-                                <input type="text" wire:model="fullname" class="form-control rounded-none focus:border-1 focus:border-black focus:box-shadow-none" placeholder="Enter Full Name" />
+                                <label class="block">Full Name:</label>
+                                <input type="text" wire:model="fullname" class="form-control mt-1 bg-m focus:bg-s focus:text-m border-m rounded-md shadow-sm text-s" placeholder="Ex:John" />
                                 <!--this was supposed to pop up when the user tries to go to payment without filling the forms-->
-                                @error('fullname') <small class="text-red-700">{{$message}}</small> @enderror 
+                                @error('fullname') <small class="text-red-700 block">{{$message}}</small> @enderror 
                             </div>
                             <div class="md:col-span-6 mb-3">
-                                <label>Phone Number</label>
-                                <input type="number" wire:model="phone" class="form-control rounded-none focus:border-1 focus:border-black focus:box-shadow-none" placeholder="Enter Phone Number" />
+                                <label class="block">Phone Number</label>
+                                <input type="text" wire:model="phone" class="form-control mt-1 bg-m focus:bg-s focus:text-m border-m rounded-md shadow-sm text-s" placeholder="Ex:0123456789" />
                                 <!--this was supposed to pop up when the user tries to go to payment without filling the forms-->
-                                @error('phone') <small class="text-red-700">{{$message}}</small> @enderror
+                                @error('phone') <small class="text-red-700 block">{{$message}}</small> @enderror
                             </div>
                             <div class="md:col-span-6 mb-3">
-                                <label>Email Address</label>
-                                <input type="email" wire:model="email" class="form-control rounded-none focus:border-1 focus:border-black focus:box-shadow-none" placeholder="Enter Email Address" />
+                                <label class="block">Email Address</label>
+                                <input type="email" wire:model="email" class="form-control mt-1 bg-m focus:bg-s focus:text-m border-m rounded-md shadow-sm text-s" placeholder="Ex:example@gmail.com" />
                                 <!--this was supposed to pop up when the user tries to go to payment without filling the forms-->
-                                @error('email') <small class="text-red-700">{{$message}}</small> @enderror
+                                @error('email') <small class="text-red-700 block">{{$message}}</small> @enderror
                             </div>
                             <div class="md:col-span-6 mb-3">
-                                <label>Pin-code (Zip-code)</label>
-                                <input type="number" wire:model="pincode" class="form-control rounded-none focus:border-1 focus:border-black focus:box-shadow-none" placeholder="Enter Pin-code" />
+                                <label class="block">Pin-code (Zip-code)</label>
+                                <input type="number" wire:model="pincode" class="form-control mt-1 bg-m focus:bg-s focus:text-m border-m rounded-md shadow-sm text-s" placeholder="Ex:123456" />
                                 <!--this was supposed to pop up when the user tries to go to payment without filling the forms-->
-                                @error('pincode') <small class="text-red-700">{{$message}}</small> @enderror
+                                @error('pincode') <small class="text-red-700 block">{{$message}}</small> @enderror
                             </div>
                             <div class="md:col-span-6 mb-3">
-                                <label>Full Address</label>
-                                <textarea wire:model="address" class="form-control rounded-none focus:border-1 focus:border-black focus:box-shadow-none" rows="2"></textarea>
+                                <label class="block">Full Address</label>
+                                <textarea wire:model="address" class="form-control mt-1 bg-m h-32 focus:bg-s focus:text-m border-m rounded-md shadow-sm text-s" placeholder="Ex:street number, street name, region, and town/city, state." rows="2"></textarea>
                                 <!--this was supposed to pop up when the user tries to go to payment without filling the forms-->
-                                @error('address') <small class="text-red-700">{{$message}}</small> @enderror
+                                @error('address') <small class="text-red-700 block">{{$message}}</small> @enderror
                             </div>
                             <div class="md:col-span-6 mb-3">
-                                <label>Select Payment Mode: </label>
+                                <label class="block mb-2">Select Payment Mode: </label>
                                     <div class="tab-content md:col-span-9 pr-3" id="v-pills-tabContent">
                                         <!--this was supposed to have hidden clickable buttons using-->
                                         <div class="tab-pane fade mb-2" id="cashOnDeliveryTab">
-                                            <button type="button" wire:click="codOrder" class="w-100 bg-m hover:bg-s hover:text-m text-s font-bold py-2 px-4 rounded inline-block">Place Order (Cash on Delivery)</button>
+                                            <button type="button" wire:click="codOrder" class="w-100 bg-m border-2 border-s hover:bg-s hover:text-m hover:border-m hover:border-2 text-s font-bold py-2 px-4 rounded inline-block">Place Order (Cash on Delivery)</button>
                                         </div>
                                         <div class="tab-pane " id="onlinePayment">
-                                            <button type="button" wire:click="codOrder" class="w-100 bg-m hover:bg-s hover:text-m text-s font-bold py-2 px-4 rounded inline-block">Pay Now (Online Payment)</button>
+                                            <button type="button" wire:click="codOrder" class="w-100 bg-m border-2 border-s hover:bg-s hover:text-m hover:border-m hover:border-2 text-s font-bold py-2 px-4 rounded inline-block">Pay Now (Online Payment)</button>
                                         </div>
                                     </div>
                                 </div>
