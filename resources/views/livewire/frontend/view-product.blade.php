@@ -14,7 +14,7 @@
                 </div>
                 <div class="md:w-7/12 p-4">
                     <div class="product-view">
-                        @if ($product->quantity)
+                        @if ($product->quantity > 0)
                         <label class="label-stock text-xs py-1 px-5 rounded bg-s text-m float-right">In Stock</label>
                         @else
                         <label class="label-stock text-xs py-1 px-5 rounded bg-red-600 text-m float-right">Out of Stock</label>  

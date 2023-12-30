@@ -36,17 +36,36 @@ class CheckoutShow extends Component
                 'quantity' => $cartItem->quantity,
                 'price' => $cartItem->product->selling_price
             ]);
+            $cartItem->product()->where('id', $cartItem->product_id)->decrement('quantity',$cartItem->quantity);
         }
         return $order;
         
     }
+    //public function onlinePay(){
+    //    $this->payment_mode = 'Online_pay';
+    //    $totalprice = $this->totalProductAmount();
+    //    $totalQuantity = 0;
+    //    foreach($this->carts as $cartItem){
+    //        $totalQuantity += $cartItem->quantity;
+    //    }
 
+    //    $this->dispatch('session',[
+    //        'totalPrice' => $totalprice,
+    //        'totalQuantity' => $totalQuantity
+    //    ]);
+    //}
     public function codOrder(){
         $this->payment_mode = 'COD';
         $codOrder = $this->placeOrder();
         if($codOrder){
             Cart::where('user_id', auth()->user()->id)->delete();
-            return redirect()->to('shop');
+            session()->flash('massage', 'Order Placed Successfully');
+            $this->dispatch('massage',[
+                'text' => 'Order Placed Successfully',
+                'type' => 'success',
+                'status' => 200
+            ]);
+            return redirect()->to('thank-you');
         }
         //else{"error message"}
     }
