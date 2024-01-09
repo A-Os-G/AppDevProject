@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"name": "AppDevProject-1",
+			"path": "../../../../../AppDevProject-1"
+		},
+		{
+			"name": "AppDevProject-2",
+			"path": "../../../../../AppDevProject-2"
+		}
+	],
+	"settings": {}
+}
