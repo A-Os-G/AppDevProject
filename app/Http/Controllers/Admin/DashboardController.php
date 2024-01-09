@@ -21,14 +21,15 @@ class DashboardController extends Controller
         $totalUser = User::where('role_as','0')->count();
         $totalAdmin = User::where('role_as','1')->count();
 
-        $todayDate = Carbon::now()->format('d-w-m');
-        $thisWeek = Carbon::now()->format('w');
+        $todayDate = Carbon::now()->format('d-m-Y');
         $thisMonth = Carbon::now()->format('m');
+        $thisYear = Carbon::now()->format('Y');
 
         $totalOrder = Order::count();
         $todayOrder = Order::whereDate('created_at',$todayDate)->count();
-        $thisWeekOrder = Order::whereWeek('created_at',$thisWeek)->count();
-        $thisMonthOrder = Order::whereWeek('created_at',$thisMonth)->count();
-        return view('admin.dashboard', compact('totalProducts','totalCategories','totalBrands','totalAllUsers','totalUsers','totalAdmin','totalOrder','todayOrder','thisWeekOrder','thisMonthOrder'));
+        $thisMonthOrder = Order::whereMonth('created_at',$thisMonth)->count();
+        $thisYearOrder = Order::whereYear('created_at',$thisYear)->count();
+
+        return view('admin.dashboard', compact('totalProducts','totalCategories','totalBrands','totalAllUsers','totalUser','totalAdmin','totalOrder','todayOrder','thisYearOrder','thisMonthOrder'));
     }
 }
