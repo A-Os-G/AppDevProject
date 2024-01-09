@@ -22,23 +22,33 @@ new class extends Component
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" wire:>
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                    <a href="/dashboard">
+                        <img src="/pics/logo.jpg" class="block h-16 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                    <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
+                        <a href="{{url('/dashboard')}}">
                         {{ __('Home') }}
-                    </x-nav-link>
-                    <!-- Doen't have a route yet -->
-                    <x-nav-link :href="route('shop')" :active="request()->routeIs('shop')" wire:navigate>
+                        </a>
+                    </div>
+                    <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
+                        <a href="{{url('/shop')}}">
                         {{ __('Shop') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('cart')" :active="request()->routeIs('cart')" wire:navigate>
-                        {{ __('Cart') }}
-                    </x-nav-link>
+                        </a>
+                    </div>
+                    <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
+                        <a href="{{url('/cart')}}">
+                        {{ __('Cart') }} (<livewire:frontend.cart.cart-count/>)
+                        </a>
+                    </div>
+                    <div class="inline-flex items-center px-1 pt-1 hover:border-b-2 rounded text-sm font-medium leading-5 text-s focus:outline-none focus:text-white focus:border-s transition duration-150 ease-in-out">
+                        <a href="{{url('/orders')}}">
+                        {{ __('Order') }}
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -58,23 +68,27 @@ new class extends Component
                     </x-slot>
                         
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile')" wire:navigate>
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+                        <a href='/profile'>
+                            <div class="block w-full px-4 py-2 text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                                {{ __('Profile') }}
+                            </div>
+                        </a>
 
-                        <!-- Authentication -->
-                        <button wire:click="logout" class="w-full text-left">
-                            <x-dropdown-link>
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </button>
+                        @if (Auth::check())
+                        <div class="block w-full px-4 py-2 text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                            <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                <button class="" type="submit">Logout</button>
+                            </form>
+                        @endif
+                        </div>
                     </x-slot>
                 </x-dropdown>
             </div>
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-m  hover:text-s hover:bg-m bg-s transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -87,9 +101,28 @@ new class extends Component
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+            <a href='/dashboard'>
+                <div class="block w-full px-4 py-2 text-bold text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                    {{ __('Home') }}
+                </div>
+            </a>
+
+            <a href='/shop'>
+                <div class="block w-full px-4 py-2 text-bold text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                    {{ __('Shop') }}
+                </div>
+            </a>
+
+            <a href='/cart'>
+                <div class="block w-full px-4 py-2 text-bold text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                    {{ __('Cart') }}
+                </div>
+            </a>
+            <a href='/orders'>
+                <div class="block w-full px-4 py-2 text-bold text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                    {{ __('Orders') }}
+                </div>
+            </a>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -99,18 +132,20 @@ new class extends Component
                 <div class="font-medium text-sm text-gray-500">{{ auth()->user()->email }}</div>
             </div>
 
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile')" wire:navigate>
+            <div class="block w-full px-4 py-2 text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                <a href="{{url('/profile')}}">
                     {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <button wire:click="logout" class="w-full text-left">
-                    <x-responsive-nav-link>
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </button>
+                </a>
             </div>
+
+                @if (Auth::check())
+            <div class="block w-full px-4 py-2 text-left text-sm leading-5 bg-m hover:bg-s hover:text-m text-s focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                    <button class="" type="submit">Logout</button>
+                </form>
+            </div>
+                @endif
         </div>
     </div>
 </nav>
